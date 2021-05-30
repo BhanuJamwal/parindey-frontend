@@ -1,0 +1,98 @@
+.header-dimension {
+    height: 83px;
+    width: 100%;
+    background-color: #111111;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 25px;
+    z-index: 999;
+}
+
+.header-logo-text-holder {
+    display: flex;
+    flex-direction: row;
+    margin: 17px 0px 17px 12px;
+}
+
+.header-logo-text-holder>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-logo-text-holder>div>span {
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.app-name-text {
+    font-family: "Nunito-ExtraBold";
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.app-type-text {
+    font-family: "Nunito-SemiBold";
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.header-logo {
+    border-radius: 50%;
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+    margin-right: 16px;
+}
+
+.header-icon {
+    color: #55df93;
+    height: 20px;
+    width: 20px;
+    margin-left: 30px;
+    margin-right: 16px;
+    margin-bottom: 4px;
+}
+
+.header-menu-text {
+    font-family: "Nunito-Regular";
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #ffffff;
+}
+
+.search-bar-input-holder {
+    margin-top: 16px;
+    margin-left: 100px;
+}
+
+.search-bar-input {
+    font-family: "Nunito-Regular";
+    height: 50px;
+    width: 300px;
+    padding: 15px 20px 13px 13px;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.notification-text-holder {
+    border-right: 0.5px solid #707070;
+    border-left: 0.5px solid #707070;
+    height: 30px;
+    width: 250px;
+    margin-top: 26px;
+}
+
+.admin-name-text-holder {
+    height: 30px;
+    margin-top: 26px;
+    width: 200px;
+}
