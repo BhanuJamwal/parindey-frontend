@@ -17,7 +17,7 @@ const StyledTextField = withStyles((theme) => ({
 
 const StyledLoginButton = withStyles({
     root: {
-        margin: '20px 10px 0px 10px',
+        margin: '20px 10px 0px 12px',
         justifyContent: 'center',
         width: 300,
         backgroundColor: '#111111',
@@ -60,10 +60,10 @@ class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName: '',
+            phoneNumber: '',
             password: '',
             isSaveClicked: false,
-            userNameError: '',
+            phoneNumberError: '',
             passwordError: ''
         }
     }
@@ -92,16 +92,16 @@ class Login extends Component {
             password: event.target.value
         }, () => this.handleErrorChange(event))
     }
-    setUserName = (event) => {
+    setphoneNumber = (event) => {
         this.setState({
             ...this.state,
-            userName: event.target.value
+            phoneNumber: event.target.value
         }, () => this.handleErrorChange(event))
     }
 
     displayErrorMessage() {
-        const { userName, password } = this.state;
-        this.setState({ userNameError: userName == '' ? 'Please Enter User Name' : '' });
+        const { phoneNumber, password } = this.state;
+        this.setState({ phoneNumberError: phoneNumber == '' ? 'Please Enter User Name' : '' });
         this.setState({
             passwordError: password == '' ? 'Please Enter Password' :
                 !this.isPasswordValid(password) ? 'Password must contain minimum 8 characters,Upper Case Alphabets, Numbers & Special Characters' : ''
@@ -114,8 +114,8 @@ class Login extends Component {
 
     authenticateUser = () => {
         this.setState({ isSaveClicked: true });
-        const { userName, password } = this.state;
-        if (userName == '' || password == '') {
+        const { phoneNumber, password } = this.state;
+        if (phoneNumber == '' || password == '') {
             this.displayErrorMessage();
             return;
         }
@@ -123,7 +123,7 @@ class Login extends Component {
             this.displayErrorMessage();
             return;
         }
-        const loginData = { userName: userName, password: password }
+        const loginData = { phoneNumber: phoneNumber, password: password }
         this.props.login(loginData)
     }
 
@@ -132,8 +132,8 @@ class Login extends Component {
         const { name, value } = event.target;
         let errors = this.state;
         switch (name) {
-            case 'userName':
-                errors.userNameError = value.length < 1 ? 'Please Enter User Name' : '';
+            case 'phoneNumber':
+                errors.phoneNumberError = value.length < 1 ? 'Please Enter User Name' : '';
                 break;
             case 'password':
                 errors.passwordError = value.length < 1 ? 'Please Enter Password' : '';
@@ -152,23 +152,23 @@ class Login extends Component {
                     <h4 className="heading-class">Please Login To continue!</h4>
                     <div className='row px-0 mx-0'>
                         <div className="col-12 pl-0 ml-0 col-md-12 col-lg-6 col-xl-4 d-flex flex-column">
-                            <span className="user-textfield-style">Username*</span>
+                            <span className="user-textfield-style">Phone No.*</span>
                             <StyledTextField
                                 required={true}
                                 variant="outlined"
-                                name="userName"
+                                name="phoneNumber"
                                 placeholder="Enter"
-                                value={this.state.userName}
+                                value={this.state.phoneNumber}
                                 InputProps={{
                                     classes: {
                                         input: "form-input",
                                     }
                                 }}
-                                onChange={this.setUserName}
+                                onChange={this.setphoneNumber}
                                 onBlur={this.handleErrorChange}
-                                error={this.state.isSaveClicked && this.state.userName === '' ? true : false}
+                                error={this.state.isSaveClicked && this.state.phoneNumber === '' ? true : false}
                             />
-                            {this.state.isSaveClicked && this.state.userName === '' ?
+                            {this.state.isSaveClicked && this.state.phoneNumber === '' ?
                                 <span className="textinput-error-text">
                                     {'Please Enter User Name'}
                                 </span>
@@ -213,9 +213,8 @@ class Login extends Component {
                         }
                     </div>
                     <div className= "helper-text-class">
-                        <h8>Or Don't have an account?</h8>
-                        <br />
-                        <h8>to create click the link below!</h8>
+                        <li>Or Don't have an account?</li>
+                        <li>to create click the link below!</li>
                     </div>
                     <StyledRegisterButton variant='text'>Register</StyledRegisterButton>
                 </div>
